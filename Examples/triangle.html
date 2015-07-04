@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script id="vertex-shader" type="x-shader/x-vertex">
+			attribute vec4 vPosition;
+
+			// Take each vertex and just output it as it is
+			void main()
+			{
+			    gl_Position = vPosition;
+			}
+		</script>
+
+		<script id="fragment-shader" type="x-shader/x-fragment">
+			precision mediump float;
+
+			// Fragment = location ~ pixel - fragment shader returns the color
+			void main()
+			{
+				float x = gl_FragCoord[0]/512.0;
+				float y = gl_FragCoord[1]/512.0;
+				
+				float r = x - y;
+				float g = y;
+				float b = 1.0 - x - y;
+
+			    gl_FragColor = vec4(r, g, b, 1.0);
+			}
+		</script>
+
+		<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+		<script type="text/javascript" src="../Common/initShaders.js"></script>
+		<script type="text/javascript" src="triangle.js"></script>
+	</head>
+
+	<body>
+		<canvas id="gl-canvas" width="512" height="512">
+			Oops ... your browser doesn't support the HTML5 canvas element
+		</canvas>
+	</body>
+</html>
