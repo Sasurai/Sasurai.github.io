@@ -50,21 +50,21 @@ window.onload = function init()
     thetaLoc = gl.getUniformLocation(program, "theta");
 
     // Set html element callbacks (sliders and controls)
-    document.getElementById("slider").onchange = function() 
+    document.getElementById("slider").oninput = function(event) 
     {
-        theta = event.srcElement.value;
+        theta = getTarget(event).value;
         gl.uniform1f(thetaLoc, theta);
         render();
     };
 
-    document.getElementById("sliderTess").onchange = function() 
+    document.getElementById("sliderTess").oninput = function(event) 
     {
-        tesselationLevel = event.srcElement.value;
+        tesselationLevel = getTarget(event).value;
         recalculateTessellation();
     }
 
-    document.getElementById("polygonType").onclick = function( event) {
-        polyType = event.srcElement.index;
+    document.getElementById("polygonType").onclick = function(event) {
+        polyType = getTarget(event).index;
         recalculateTessellation();
     }
     render();
