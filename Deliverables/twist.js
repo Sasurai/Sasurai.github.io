@@ -50,14 +50,14 @@ window.onload = function init()
     thetaLoc = gl.getUniformLocation(program, "theta");
 
     // Set html element callbacks (sliders and controls)
-    document.getElementById("slider").oninput = function(event) 
+    document.getElementById("slider").onchange = function(event) 
     {
         theta = getTarget(event).value;
         gl.uniform1f(thetaLoc, theta);
         render();
     };
 
-    document.getElementById("sliderTess").oninput = function(event) 
+    document.getElementById("sliderTess").onchange = function(event) 
     {
         tesselationLevel = getTarget(event).value;
         recalculateTessellation();
