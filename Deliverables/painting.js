@@ -10,6 +10,10 @@ var canvas;
 var gl;
 
 var points = [];
+var indexs = [];
+var widths = [];
+var currentWidth = 1.0;
+var index = 0;
 
 var mouseDown = false;
 
@@ -43,8 +47,20 @@ window.onload = function init()
     gl.enableVertexAttribArray( vPosition );
 
     // Set html callbacks
-    canvas.addEventListener("mousedown", function(event){ mouseDown = true; });
-    canvas.addEventListener("mouseup", function(event){ mouseDown = false; });
+    canvas.addEventListener("mousedown", function(event){ 
+        mouseDown = true;
+        indexs[index] = points.length;
+        widths[index] = currentWidth;
+        var x; var y;
+        var rect =  event.currentTarget.getBoundingClientRect();
+        x = -1.0 + (2.0 * (event.clientX - rect.left)/ canvas.width);
+        y = -1.0 + (2.0 * (canvas.height - (event.clientY - rect.top)) / canvas.height);
+        addPoint(x, y);
+    });
+    canvas.addEventListener("mouseup", function(event){ 
+        mouseDown = false;
+        index++; 
+    });
     canvas.addEventListener("mousemove", function(event)
     {
         if(mouseDown)
@@ -54,6 +70,26 @@ window.onload = function init()
             x = -1.0 + (2.0 * (event.clientX - rect.left)/ canvas.width);
             y = -1.0 + (2.0 * (canvas.height - (event.clientY - rect.top)) / canvas.height);
             addPoint(x, y);
+        }
+    });
+
+    document.getElementById("slider").onchange = function(event) 
+    {
+        currentWidth = getTarget(event).value;
+        render();
+    };
+
+    window.addEventListener("keydown", function(event)
+    {
+        switch(event.keyCode)
+        {
+            case 32: // spacebar
+                points.length = 0;
+                indexs.length = 0;
+                widths.length = 0;
+                index = 0;
+                render();
+                break;
         }
     });
 
@@ -71,5 +107,16 @@ function addPoint(x, y)
 function render()
 {
     gl.clear( gl.COLOR_BUFFER_BIT );
-    gl.drawArrays( gl.LINE_STRIP, 0, points.length );
+
+    for(var i = 0; i < indexs.length; i++)
+    {
+        gl.lineWidth(widths[i]); // Line width aparently not working in windows >.<
+        var end = points.length - indexs[i];
+        if(i < indexs.length - 1)
+        {
+            end = indexs[i+1] - indexs[i];
+        }
+        var o = points.length;
+        gl.drawArrays( gl.LINE_STRIP, indexs[i], end );
+    }
 }
