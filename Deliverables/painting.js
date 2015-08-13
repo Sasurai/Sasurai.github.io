@@ -12,10 +12,15 @@ var gl;
 var points = [];
 var indexs = [];
 var widths = [];
+var colors = [];
 var currentWidth = 1.0;
+var currentColor = 0;
 var index = 0;
 
 var mouseDown = false;
+
+var colorBuffer;
+var positionBuffer;
 
 window.onload = function init()
 {
@@ -37,8 +42,19 @@ window.onload = function init()
 
     // Load initial data into the GPU
 
-    var bufferId = gl.createBuffer();
-    gl.bindBuffer( gl.ARRAY_BUFFER, bufferId );
+    colorBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
+
+    // Associate out shader variables with our data buffer
+
+    var vColor = gl.getAttribLocation(program, "vColor");
+    gl.vertexAttribPointer(vColor, 3, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(vColor);
+
+    // Load initial data into the GPU
+
+    positionBuffer = gl.createBuffer();
+    gl.bindBuffer( gl.ARRAY_BUFFER, positionBuffer );
 
     // Associate out shader variables with our data buffer
 
@@ -79,6 +95,10 @@ window.onload = function init()
         render();
     };
 
+    document.getElementById("colorSelect").onclick = function(event) {
+        currentColor = getTarget(event).index;
+    }
+
     window.addEventListener("keydown", function(event)
     {
         switch(event.keyCode)
@@ -96,11 +116,33 @@ window.onload = function init()
     render();
 };
 
+function getColorFromId(id)
+{
+    switch(id)
+    {
+        case 0:
+            return vec3(1.0, 0.0, 0.0);
+            break;
+        case 1:
+            return vec3(0.0, 1.0, 0.0);
+            break;
+        case 2:
+            return vec3(0.0, 0.0, 1.0);
+            break;
+    }
+}
+
 function addPoint(x, y)
 {
-    points.push(vec2(x, y));
     // Update data and render the new points
+    gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
+    colors.push(getColorFromId(currentColor));
+    gl.bufferData(gl.ARRAY_BUFFER, flatten(colors), gl.DYNAMIC_DRAW);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+    points.push(vec2(x, y));
     gl.bufferData( gl.ARRAY_BUFFER, flatten(points), gl.DYNAMIC_DRAW);
+
     render();
 }
 
