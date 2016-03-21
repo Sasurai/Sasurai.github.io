@@ -788,7 +788,7 @@ section {
 section #title {
   border: 0;
   outline: none;
-  margin: 0 0 50px 0;
+  margin: 0 0 5px 0;
   padding: 0 0 5px 0;
 }
 section #title h1 {
@@ -825,14 +825,6 @@ section #footer .credits.right {
     width: 100%;
     line-height: 30px;
     text-align: center;
-  }
-  #title .credits .left {
-    float: none;
-    display: block;
-  }
-  #title .credits .right {
-    float: none;
-    display: block;
   }
 }
 @media print, screen and (max-width: 480px) {
