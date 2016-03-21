@@ -844,3 +844,21 @@ section #footer .credits {
 ul.posts { 
     margin: 20px auto 40px; 
 }
+
+.post-title
+{
+  font-size: 1.5em;
+  color: #d7cfbe;
+  padding-bottom: 10px;
+}
+
+.meta
+{
+  font-size:0.7em;
+  font-style:oblique;
+}
+
+.post
+{
+  font-size:0.7em;
+}
