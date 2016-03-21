@@ -812,10 +812,10 @@ section #footer .credits {
   color: #696969;
   margin-top: -10px;
 }
-section #footer .credits.left {
+#footer .credits.left {
   float: left;
 }
-section #footer .credits.right {
+#footer .credits.right {
   float: right;
 }
 
@@ -843,5 +843,4 @@ section #footer .credits.right {
 
 ul.posts { 
     margin: 20px auto 40px; 
-    font-size: 1.5em;
 }
