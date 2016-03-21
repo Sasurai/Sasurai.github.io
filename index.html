@@ -4,7 +4,11 @@ layout: default
 
 <h1>{{ page.title }}</h1>
 <ul class="posts">
-	<div id="title"><h1>Blog Posts</h1></div>
+	<div class="blog-index">  
+  {% assign post = site.posts.first %}
+  {% assign content = post.content %}
+  {% include post_detail.html %}
+</div>
 
   {% for post in site.posts %}
     <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
