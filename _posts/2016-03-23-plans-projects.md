@@ -14,7 +14,7 @@ date: 23-03-2016
 
 <h1>Kobe Team and AirConsole</h1>
 
-<p>Last week a friend found [AirConsole]{https://www.airconsole.com/}, and we thought it was awesome. If you don't know about it, it's a website that let's you play web games using mobile phones as controllers, which makes it excellent for big party games and playing with lots of friends. We also found out that they were holding a contest, and even if we were kind of late to the party, having only the weekend to put our game together, we decided we wanted in. We determined we had the noble purpose of winning and using the cash to go to a good restaurant and eat Kobe meat, and thus the name was decided. To put credit where it's due and make sure I don't forget later, I'll list now the three members of the team: [Manuel Álvarez]{https://twitter.com/adtvergara}(Manu, for future references XD), [Miguel Janer]{https://twitter.com/migueljaner}, and [Jorge Martinez]{https://twitter.com/Sasurai_JMV} (yup, that's me).</p>
+<p>Last week a friend found [AirConsole](https://www.airconsole.com/), and we thought it was awesome. If you don't know about it, it's a website that let's you play web games using mobile phones as controllers, which makes it excellent for big party games and playing with lots of friends. We also found out that they were holding a contest, and even if we were kind of late to the party, having only the weekend to put our game together, we decided we wanted in. We determined we had the noble purpose of winning and using the cash to go to a good restaurant and eat Kobe meat, and thus the name was decided. To put credit where it's due and make sure I don't forget later, I'll list now the three members of the team: [Manuel Álvarez](https://twitter.com/adtvergara)(Manu, for future references XD), [Miguel Janer](https://twitter.com/migueljaner), and [Jorge Martinez](https://twitter.com/Sasurai_JMV) (yup, that's me).</p>
 
 <h2>About the game</h2>
 
@@ -22,7 +22,7 @@ date: 23-03-2016
 
 <p>The game was submitted on sunday, and it's already going through the review process, so I'm hoping I'll be able to give you a link soon. I'll update the post when it's published, and I'll probably also post it on twitter. For now I can show you the cover art, which is mostly a screenshot with the title on top. It supports up to sixteen players, and as far as me and my friends are any judge, it's pretty damn fun to play. We are also still working on it, so expect some polish and bugfixing in the near future, when we get more feedback.</p>
 
-![Football with tanks! What could possibly go wrong?]{/images/tankball_cover.png "Tankball! cover art. Again, bear in mind we have no artists on the team.""}
+![Football with tanks! What could possibly go wrong?](/images/tankball_cover.png "Tankball! cover art. Again, bear in mind we have no artists on the team."")
 
 <h2>Working with AirConsole</h2>
 <p>This part will probably be a bit more technical, which will be good or bad depending on your background. Anyways, here we go.</p>
