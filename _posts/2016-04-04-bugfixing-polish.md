@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Plans, projects and more"
+title: "Prizes, bugfixing and polish"
 date: 23-03-2016
 ---
 
