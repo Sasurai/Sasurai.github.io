@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Prizes, bugfixing and polish"
-date: 23-03-2016
+date: 04-04-2016
 ---
 
 <p>Here we are another week. This week's post will probably be short, since it was a bit of a crazy week.</p>
